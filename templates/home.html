@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <title>Flight Delay Predictor Page | Vardhini </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> -->
+    </head>
+
+    <body>
+        <div class="wrapper">
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+                <h1>
+                    Know the Arrival Status of your Flight
+                </h1>
+                <div class="input-box">
+                    <input type="number" name="TEMPERATURE_departures"
+                        placeholder="Temperature at departure (°C)" min='0' max='50' required/>
+                </div> 
+                <div class="input-box">
+                    <input type="number" name="TEMPERATURE_arrival"
+                        placeholder="Temperature at arrival (°C)" min='0' max='50' required/>
+                </div> 
+                <div class="input-box">
+                    <input type="number" name="WIND_departures"
+                        placeholder="Wind magnitude at departure (mph)" min='0' max='50' required/>
+                </div> 
+                <div class="input-box">
+                    <input type="number" name="WIND_arrival"
+                        placeholder="Wind magnitude at arrival (mph)" min='0' max='50' required/>
+                </div> 
+                <div class="input-box">
+                    <input type="number" name="delay_departure"
+                        placeholder="Delay in departure (min)" min='0' required/>
+                </div> 
+                <div class="radiotype">
+                    <label>Air traffic</label>
+                    <input type="radio" name="Air_Route_Traffic" value=1> yes
+                    <input type="radio" name="Air_Route_Traffic" value=0> no 
+                </div>
+                <div class="radiotype">
+                    <label>Any technical/domestic issues</label>
+                    <input type="radio" name="Aircraft_Maintainance" value=1> yes
+                    <input type="radio" name="Aircraft_Maintainance" value=0> no 
+                </div>
+                <div class="radiotype">
+                    <label>Heavy precipitation</label>
+                    <input type="radio" name="Heavy_Precipitation" value=1> yes
+                    <input type="radio" name="Heavy_Precipitation" value=0> no 
+                    <button type="reset" class="reset" >Reset</button>
+                </div>
+                <!-- <div >
+                    <button type="reset" class="reset" >Reset</button>
+                </div>  -->
+                <div >
+                    <button class="btn" type="submit" value="Predict Flight Delay" required> Submit </button>
+                </div>
+                <div class="link">
+                    <p>AWS Production Link?<a href="https://github.com/utkarshg1/mlproject_regression">click here</a></p>
+                    <p>GitHub Repository?<a href="https://github.com/utkarshg1/mlproject_regression/">click here</a></p>
+                </div>
+            </form>
+        <!-- <h2>
+            The  prediction is {{results}}
+        </h2> -->
+    <body>
+</html>
