@@ -12,7 +12,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 #from sklearn.neighbors import KNeighborsRegressor
 #from sklearn.tree import DecisionTreeRegressor
-from xgboost import XGBRegressor
+# from xgboost import XGBRegressor
 
 from src.exception import CustomException
 from src.logger import logging
@@ -42,7 +42,6 @@ class ModelTrainer:
                 "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
                 "AdaBoost Regressor": AdaBoostRegressor(),
-                "XGBRegressor": XGBRegressor(),
             }
             params={
                 
@@ -61,10 +60,6 @@ class ModelTrainer:
                     'n_estimators': [8,16,32,64,128,256]
                 },    
                 "Linear Regression":{},
-                "XGBRegressor":{
-                    'learning_rate':[.1,.01,.05,.001],
-                    'n_estimators': [8,16,32,64,128,256]
-                },            
                 "AdaBoost Regressor":{
                     'learning_rate':[.1,.01,0.5,.001],
                     # 'loss':['linear','square','exponential'],
